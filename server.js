@@ -3,15 +3,15 @@ const axios = require('axios');
 const cors = require('cors');
 
 const app = express();
-const port = 4000; // Escolha uma porta para o servidor intermediário
+const port = 4000; 
 
-app.use(cors()); // Habilita o CORS
+app.use(cors());
 app.use(express.json())
 const baseUrl = 'https://economia.awesomeapi.com.br/last/';
 
 app.get('/conversions', async (req, res) => {
   try {
-    const response = await axios.get(`${baseUrl}USD-BRL,EUR-BRL,CHF-BRL,GBP-BRL,JPY-BRL,ARS-BRL`); //Dolar, Euro, FRanco-Suiço,Libra-Esterlina, Iene-Japao, Peso-Argentino
+    const response = await axios.get(`${baseUrl}USD-BRL,EUR-BRL,CHF-BRL,GBP-BRL,JPY-BRL,ARS-BRL`); 
     const conversions = Object.values(response.data);
     res.json(conversions);
   } catch (error) {
